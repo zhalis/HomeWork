@@ -20,9 +20,9 @@ public class ArraysUtils {
     }
 
     /**
-     * создает массиф по введенным с консоли параметрам
+     * создает массив по введенным с консоли параметрам
      *
-     * @return массиф с задынними значениями элементов
+     * @return массив с задынними значениями элементов
      */
     public static int[] arrayFromConsole() {
         Scanner console = new Scanner(System.in);

@@ -46,13 +46,21 @@ public class ArraysIteration {
     }
 
     /**
-     *  Выводит каждый второй элемент массива в консоль
+     * Выводит каждый второй элемент массива в консоль
      *
      * @param arrayFromConsole массив в котором зыдаем с консоли длинна масива и задаем значения каждого элемента массива
      * @return четыри строки с каждым вторым элементом массива выведенными разными методами
      */
     public static String everySecondElement(int[] arrayFromConsole) {
-        String methodForeach = "Foreach он заходит в каждый элемент массива, поэтому его невозможно использовать в этом методе";
+        String methodForeach = "";
+        int h = 0;
+        for (int a : arrayFromConsole) {
+            if (h % 2 != 0) {
+                methodForeach += String.format("%d, ", a);
+            }
+            h++;
+        }
+
 
         String methodFor = "";
         for (int i = 1; i < arrayFromConsole.length; i++) {
@@ -82,7 +90,17 @@ public class ArraysIteration {
      * @return четыри строки со всеми элементами массива выведенными в обратном порядке разными методами
      */
     public static String allElementsReverseOrder(int[] arrayFromConsole) {
-        String methodForeach = "Foreach он заходит в каждый элемент массива по порядку, поэтому его невозможно использовать в этом методе";
+        String methodForeach = "";
+        int[] container = new int[arrayFromConsole.length];
+        int h = arrayFromConsole.length - 1;
+        for (int a : arrayFromConsole) {
+            container[h] = a;
+            h--;
+        }
+        for (int a : container) {
+            methodForeach += String.format("%d, ", a);
+        }
+
 
         String methodFor = "";
         for (int i = arrayFromConsole.length - 1; i >= 0; i--) {
