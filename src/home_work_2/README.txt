@@ -1,6 +1,12 @@
 arrays:
     ArraysLteration - выполнен пунк 2.2
     Task_2_4   - выполнен пункт 2.4
+    DoWhileOperation - выполнен пункт 2.3.1
+    WhileOperation - выполнен пункт 2.3.2
+    ForOperation - выполнен пункт 2.3.3
+    ForEachOperation - выполнен пункт 2.3.4
+    IArraysOperation - выполнено создание интерфейса
+    Task_2_3 - выполнен пункт 2.3
 loops:
     Task_1_1_1 - выполнен пункт 1.1.1
     Task_1_1_2 - выполнен рункт 1.1.2

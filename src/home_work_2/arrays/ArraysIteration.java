@@ -25,22 +25,26 @@ public class ArraysIteration {
         for (int a : arrayFromConsole) {
             methodForeach += String.format("%d, ", a);
         }
+
         String methodFor = "";
         for (int i = 0; i < arrayFromConsole.length; i++) {
             methodFor += String.format("%d, ", arrayFromConsole[i]);
         }
+
         String methodWhile = "";
         int b = 0;
         while (b < arrayFromConsole.length) {
             methodWhile += String.format("%d, ", arrayFromConsole[b]);
             b++;
         }
+
         String methodDoWhile = "";
         int j = 0;
         do {
             methodDoWhile += String.format("%d, ", arrayFromConsole[j]);
             j++;
         } while (j < arrayFromConsole.length);
+
         return "methodForeach: " + methodForeach + "\nmethodFor: " + methodFor +
                 "\nmethodWhile: " + methodWhile + "\nmethodDoWhile: " + methodDoWhile;
     }
@@ -61,24 +65,26 @@ public class ArraysIteration {
             h++;
         }
 
-
         String methodFor = "";
         for (int i = 1; i < arrayFromConsole.length; i++) {
             methodFor += String.format("%d, ", arrayFromConsole[i]);
             i++;
         }
+
         String methodWhile = "";
         int b = 1;
         while (b < arrayFromConsole.length) {
             methodWhile += String.format("%d, ", arrayFromConsole[b]);
             b += 2;
         }
+
         String methodDoWhile = "";
         int j = 1;
         do {
             methodDoWhile += String.format("%d, ", arrayFromConsole[j]);
             j += 2;
         } while (j < arrayFromConsole.length);
+
         return "methodForeach: " + methodForeach + "\nmethodFor: " + methodFor +
                 "\nmethodWhile: " + methodWhile + "\nmethodDoWhile: " + methodDoWhile;
     }
@@ -106,18 +112,21 @@ public class ArraysIteration {
         for (int i = arrayFromConsole.length - 1; i >= 0; i--) {
             methodFor += String.format("%d, ", arrayFromConsole[i]);
         }
+
         String methodWhile = "";
         int b = arrayFromConsole.length - 1;
         while (b >= 0) {
             methodWhile += String.format("%d, ", arrayFromConsole[b]);
             b--;
         }
+
         String methodDoWhile = "";
         int j = arrayFromConsole.length - 1;
         do {
             methodDoWhile += String.format("%d, ", arrayFromConsole[j]);
             j--;
         } while (j >= 0);
+
         return "methodForeach: " + methodForeach + "\nmethodFor: " + methodFor +
                 "\nmethodWhile: " + methodWhile + "\nmethodDoWhile: " + methodDoWhile;
     }
