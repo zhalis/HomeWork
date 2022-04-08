@@ -20,5 +20,7 @@ loops:
 sorts:
     block_schemeDRAWIO - выполнение пункта 3 (.drawio || .vsdx)
     block_schemePDF    - выполнение пункта 3 (.pdf || .svg)
+    SortsMain          - выполнение пункта 4.2
 untils:
     ArraysUtils - выполнен пунк 2.1
+    SortsUtils  - выполнен пунк 4.1
