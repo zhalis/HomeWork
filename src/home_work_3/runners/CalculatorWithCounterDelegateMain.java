@@ -20,13 +20,15 @@ public class CalculatorWithCounterDelegateMain {
 
         System.out.println("Делегирование выполнения методав способом композиции:");
 
-        result = composite.addition(a, composite.addition(composite.multiplication(b, c), composite.exponentiation(composite.division(d, e), 2)));
+        result = composite.addition(a, composite.addition(composite.multiplication(b, c),
+                composite.exponentiation(composite.division(d, e), degree)));
         System.out.println(result);
         System.out.println("Счетчик использования калькулятора: " + composite.getCountOperation());
 
         System.out.println("Делегирование выполнения методав способом агрегации:");
 
-        result = aggregation.addition(a, aggregation.addition(aggregation.multiplication(b, c), aggregation.exponentiation(aggregation.division(d, e), 2)));
+        result = aggregation.addition(a, aggregation.addition(aggregation.multiplication(b, c),
+                aggregation.exponentiation(aggregation.division(d, e), degree)));
         System.out.println(result);
         System.out.println("Счетчик использования калькулятора: " + aggregation.getCountOperation());
     }

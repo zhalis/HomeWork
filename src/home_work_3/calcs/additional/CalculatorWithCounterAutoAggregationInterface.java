@@ -8,8 +8,6 @@ import home_work_3.calcs.api.ICalculator;
 public class CalculatorWithCounterAutoAggregationInterface {
     private long counter = 0;
 
-
-
     private final ICalculator calculator;
 
     public CalculatorWithCounterAutoAggregationInterface(CalculatorWithMathCopy calculator) {

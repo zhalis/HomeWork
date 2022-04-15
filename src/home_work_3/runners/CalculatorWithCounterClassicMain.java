@@ -15,7 +15,8 @@ public class CalculatorWithCounterClassicMain extends CalculatorWithCounterClass
         int degree = 2;
         double result;
 
-        result = calculator.addition(a, calculator.addition(calculator.multiplication(b, c), calculator.exponentiation(calculator.division(d, e), 2)));
+        result = calculator.addition(a, calculator.addition(calculator.multiplication(b, c),
+                calculator.exponentiation(calculator.division(d, e), degree)));
         calculator.incrementCountOperation();
         calculator.incrementCountOperation();
         calculator.incrementCountOperation();

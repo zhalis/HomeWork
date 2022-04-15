@@ -13,7 +13,6 @@ public class CalculatorWithMemory {
         this.calculator = calculator;
     }
 
-
     /**
      * Метод производит деление
      *

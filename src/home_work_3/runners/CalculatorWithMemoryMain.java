@@ -33,7 +33,8 @@ public class CalculatorWithMemoryMain {
         calculator.addition(resultAdditionFirst, resultExponentiation);
 
         System.out.println("Счетчик использования калькулятора: " + calculator.getCountOperation());
-        System.out.println("Результат: " + calculator.addition(a, calculator.addition(calculator.multiplication(b, c), calculator.exponentiation(calculator.division(d, e), 2))));
+        System.out.println("Результат: " + calculator.addition(a, calculator.addition(calculator.multiplication(b, c),
+                calculator.exponentiation(calculator.division(d, e), degree))));
         System.out.println("Последнее сохранённое значение в памяти: " + calculator.getMemoryResult());
         System.out.println("Последнее сохранённое значение в памяти: " + calculator.getMemoryResult());
     }

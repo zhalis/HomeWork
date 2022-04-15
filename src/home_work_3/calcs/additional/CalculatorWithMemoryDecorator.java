@@ -50,8 +50,8 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
 
     @Override
     public double squareRoot(double number) {
-        this.result = calculator.squareRoot(number);
-        return this.result;
+        this.resultOfLastOperation = calculator.squareRoot(number);
+        return this.resultOfLastOperation;
     }
 
     public double getResult() {

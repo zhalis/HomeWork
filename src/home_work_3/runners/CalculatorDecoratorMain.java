@@ -20,7 +20,8 @@ public class CalculatorDecoratorMain {
         double e = 5.0;
         int degree = 2;
 
-        System.out.println("Результат : " + calculator.addition(a, calculator.addition(calculator.multiplication(b, c), calculator.exponentiation(calculator.division(d, e), 2))));
+        System.out.println("Результат : " + calculator.addition(a, calculator.addition(calculator.multiplication(b, c),
+                calculator.exponentiation(calculator.division(d, e), degree))));
 
         if (calculator instanceof CalculatorWithCounterAutoDecorator) {
             System.out.println("Счетчик использования калькулятора: " + ((CalculatorWithCounterAutoDecorator) calculator).getCountOperation());

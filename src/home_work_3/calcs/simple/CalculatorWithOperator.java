@@ -87,5 +87,4 @@ public class CalculatorWithOperator implements ICalculator {
     public double squareRoot(double number) {
         return Math.sqrt(number);
     }
-
 }

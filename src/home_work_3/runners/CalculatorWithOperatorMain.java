@@ -14,7 +14,8 @@ public class CalculatorWithOperatorMain extends CalculatorWithOperator {
         int degree = 2;
         double result;
 
-        result = calculator.addition(a, calculator.addition(calculator.multiplication(b, c), calculator.exponentiation(calculator.division(d, e), 2)));
+        result = calculator.addition(a, calculator.addition(calculator.multiplication(b, c),
+                calculator.exponentiation(calculator.division(d, e), degree)));
         System.out.println(result);
     }
 }
