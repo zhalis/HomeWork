@@ -117,20 +117,17 @@ public class DataContainer<T> {
 
     /**
      * Метод занимается сортировкой данных записанных в поле data используя реализацию сравнения из
-     * переданного объекта comparator
+     * переданного объекта comparator, если в массиве есть nulls, они всегда перемещаются в конец мвссива
      *
      * @param comparator компаратор для сравнения объектов
      */
     public void sort(Comparator<T> comparator) {
-        int i = 0;
-        while (i < this.data.length - 1) {
-            if (comparator.compare(this.data[i], this.data[i + 1]) > 0) {
-                T tmp = this.data[i];
-                this.data[i] = this.data[i + 1];
-                this.data[i + 1] = tmp;
-                i = 0;
-            } else {
-                i++;
+        for (int j = this.data.length - 1; j > 0; j--) {
+            for (int i = 0; i < j; i++) {
+                if (this.data[i] == null && this.data[i + 1] != null
+                        || this.data[i + 1] != null && comparator.compare(this.data[i], this.data[i + 1]) > 0) {
+                    swapElements(this.data, i, i + 1);
+                }
             }
         }
     }
@@ -140,9 +137,75 @@ public class DataContainer<T> {
      *
      * @return строку с содержимым ячеек массива без nulls
      */
+    @Override
     public String toString() {
         return Arrays.toString(data)
                 .replaceAll(", null", "")
                 .replace("null, ", "");
+    }
+
+    /**
+     * Метод сортирует элементы в переданном объекте DataContainer используя реализацию сравнения
+     * вызываемый у хранимых объектов
+     *
+     * @param dataContainer объект элементы которого нужно отсортировать
+     * @param <T>           тип данных который является Comparable
+     */
+    public static <T extends Comparable<T>> void sort(DataContainer<T> dataContainer) {
+        T[] data = dataContainer.data;
+
+        for (int j = data.length - 1; j > 0; j--) {
+            for (int i = 0; i < j; i++) {
+                if (isFirstElementGreater(data[i], data[i + 1])) {
+                    swapElements(data, i, i + 1);
+                }
+            }
+        }
+    }
+
+    /**
+     * Метод сортирует элементы массива используя реализацию сравнения из переданного объекта интерфейса Comparator
+     *
+     * @param container  объект элементы которого нужно отсортировать
+     * @param comparator объекта интерфейса Comparator с реализацией сравнения
+     * @param <T>        обобщенный тип параметров container и comparator
+     */
+    public static <T> void sort(DataContainer<T> container, Comparator<T> comparator) {
+        T[] data = container.data;
+        for (int j = data.length - 1; j > 0; j--) {
+            for (int i = 0; i < j; i++) {
+                if (data[i] == null && data[i + 1] != null
+                        || data[i + 1] != null && comparator.compare(data[i], data[i + 1]) > 0) {
+                    swapElements(data, i, i + 1);
+                }
+            }
+        }
+    }
+
+    /**
+     * Метод проверяет условия для сортировки элементов массива с nulls методом compareTo
+     *
+     * @param firstElement  первый элемент массива
+     * @param secondElement второй элемент массива
+     * @param <T>           тип данных который является Comparable
+     * @return true или false
+     */
+    private static <T extends Comparable<T>> boolean isFirstElementGreater(T firstElement, T secondElement) {
+        return firstElement == null && secondElement != null
+                || secondElement != null && firstElement.compareTo(secondElement) > 0;
+    }
+
+    /**
+     * Метод меняет местами данные массива по их индексу
+     *
+     * @param data               массив в котором нужно произвести замену данных
+     * @param firstElementIndex  индекс ячейки данные которой будут записаны данные ячейки secondElementIndex
+     * @param secondElementIndex индекс ячейки данные которой будут записаны данные ячейки firstElementIndex
+     * @param <T>                тип данных который является Comparable и Comparator
+     */
+    private static <T> void swapElements(T[] data, int firstElementIndex, int secondElementIndex) {
+        T tmp = data[firstElementIndex];
+        data[firstElementIndex] = data[secondElementIndex];
+        data[secondElementIndex] = tmp;
     }
 }
