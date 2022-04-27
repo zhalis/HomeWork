@@ -3,8 +3,10 @@ package home_work_4.runners;
 import home_work_4.DataContainer;
 import home_work_4.comparator.IntegerComparator;
 import home_work_4.comparator.StringComparator;
+
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class DataContainerMain {
 
@@ -57,5 +59,15 @@ public class DataContainerMain {
         System.out.println("Массив до сортировки: " + Arrays.toString(stringDataContainer.getData()));
         DataContainer.sort(stringDataContainer, stringComparator);
         System.out.println("Массив после сортировки: " + Arrays.toString(stringDataContainer.getData()));
+
+        System.out.println("Задание 13:");
+        Iterator<Integer> integerIterator = container.iterator();
+        while (integerIterator.hasNext()) {
+            System.out.println(integerIterator.next());
+        }
+        Iterator<String> stringIterator = stringDataContainer.iterator();
+        while (stringIterator.hasNext()) {
+            System.out.println(stringIterator.next());
+        }
     }
 }

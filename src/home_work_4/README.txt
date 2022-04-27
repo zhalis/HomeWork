@@ -8,6 +8,7 @@ DataContainer - Выполняет пункты 4 - 10
     метод String toString() - выполняет пункт 10
     sort(DataContainer<T> dataContainer) - выполняет пункт 11
     sort(DataContainer<T> container, Comparator<T> comparator) - выполняет пункт 12
+    public Iterator<T> iterator() - выполняет пункт 13
 runners:
     DataContainerMain - тесты
 comparator:

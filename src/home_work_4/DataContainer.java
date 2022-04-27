@@ -2,13 +2,14 @@ package home_work_4;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Данный класс удаляет и добавляет данные в массив и сортирует данные в массиве
  *
  * @param <T> тип элементов массива
  */
-public class DataContainer<T> {
+public class DataContainer<T> implements Iterable<T> {
 
     private T[] data;
 
@@ -207,5 +208,40 @@ public class DataContainer<T> {
         T tmp = data[firstElementIndex];
         data[firstElementIndex] = data[secondElementIndex];
         data[secondElementIndex] = tmp;
+    }
+
+    /**
+     * Метод генерирует класс DataContainerIterator() и возвращает его
+     * @return возвращает класс DataContainerIterator()
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new DataContainerIterator();
+    }
+
+    /**
+     * внутренний класс с реализацией интерфейса Iterator для итерирования элементов типа T
+     */
+    class DataContainerIterator implements Iterator<T> {
+
+        private int current;
+
+        /**
+         * Метод проверяет есть ли следующая ячейка в DataContainer
+         * @return true или false
+         */
+        @Override
+        public boolean hasNext() {
+            return current < data.length;
+        }
+
+        /**
+         * Метод возвращает данные ячейки
+         * @return данные ячейки
+         */
+        @Override
+        public T next() {
+            return data[current++];
+        }
     }
 }
