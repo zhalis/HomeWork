@@ -1,19 +1,16 @@
 package home_work_4.runners;
 
 import home_work_4.DataContainer;
-import home_work_4.comparator.IntegerComparator;
-import home_work_4.comparator.StringComparator;
+import home_work_4.comparator.ComparatorComparable;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Iterator;
 
 public class DataContainerMain {
 
     public static void main(String[] args) {
 
-        Comparator<Integer> integerComparator = new IntegerComparator();
-        Comparator<String> stringComparator = new StringComparator();
+        ComparatorComparable comparatorComparable = new ComparatorComparable();
         DataContainer<Integer> container = new DataContainer<>(new Integer[]{55, 7, 4, null, 1, null, 6, 12, 8, 9});
         DataContainer<String> stringDataContainer = new DataContainer<>(new String[]{"Ab", "a", "A", null, null, "b", "B", "AC", "c"});
 
@@ -34,7 +31,7 @@ public class DataContainerMain {
 
         System.out.println("Задание 9:");
         System.out.println("Масcив до сортировки: " + container);
-        container.sort(Comparator.naturalOrder());
+        container.sort(java.util.Comparator.naturalOrder());
         System.out.println("Массив после сортировки: " + container);
 
         System.out.println("Задание 10:");
@@ -54,10 +51,10 @@ public class DataContainerMain {
         container = new DataContainer<>(new Integer[]{55, 7, 4, null, -1, null, 6, 12, 8, 9});
         stringDataContainer = new DataContainer<>(new String[]{"Ab", "a", "A", null, null, "b", "B", "AC", "c"});
         System.out.println("Массив до сортировки: " + Arrays.toString(container.getData()));
-        DataContainer.sort(container, integerComparator);
+        DataContainer.sort(container, comparatorComparable);
         System.out.println("Массив после сортировки: " + Arrays.toString(container.getData()));
         System.out.println("Массив до сортировки: " + Arrays.toString(stringDataContainer.getData()));
-        DataContainer.sort(stringDataContainer, stringComparator);
+        DataContainer.sort(stringDataContainer, comparatorComparable);
         System.out.println("Массив после сортировки: " + Arrays.toString(stringDataContainer.getData()));
 
         System.out.println("Задание 13:");

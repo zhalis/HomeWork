@@ -95,24 +95,19 @@ public class DataContainer<T> implements Iterable<T> {
      * Метод удаляет первую ячейку с данными по переданным данным
      *
      * @param item данные которые нужно удалить
-     * @return если ячеку массива удалили true, если нет false
+     * @return если ячейку массива удалили true, если нет false
      */
     public boolean deleteItem(T item) {
         boolean delete = false;
-        int b = 0;
+        int index = 0;
         for (int i = 0; i < this.data.length - 1; i++) {
             if (this.data[i].equals(item)) {
-                this.data[i] = null;
-                b = i;
+                index = i;
+                deleteIndex(index);
                 delete = true;
                 break;
             }
         }
-        for (int j = b; j < this.data.length - 1; j++) {
-            this.data[j] = this.data[j + 1];
-        }
-        this.data = Arrays.copyOf(this.data, this.data.length - 1);
-
         return delete;
     }
 
@@ -212,6 +207,7 @@ public class DataContainer<T> implements Iterable<T> {
 
     /**
      * Метод генерирует класс DataContainerIterator() и возвращает его
+     *
      * @return возвращает класс DataContainerIterator()
      */
     @Override
@@ -228,6 +224,7 @@ public class DataContainer<T> implements Iterable<T> {
 
         /**
          * Метод проверяет есть ли следующая ячейка в DataContainer
+         *
          * @return true или false
          */
         @Override
@@ -237,6 +234,7 @@ public class DataContainer<T> implements Iterable<T> {
 
         /**
          * Метод возвращает данные ячейки
+         *
          * @return данные ячейки
          */
         @Override

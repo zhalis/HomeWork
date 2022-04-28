@@ -12,5 +12,4 @@ DataContainer - Выполняет пункты 4 - 10
 runners:
     DataContainerMain - тесты
 comparator:
-    IntegerСomparator - реализацию сравнения из переданного объекта интерфейса Comparator
-    StringComparator - реализацию сравнения из переданного объекта интерфейса Comparator
+    ComparatorComparable<T extends Comparable<T>> - реализацию сравнения из переданного объекта интерфейса Comparator
