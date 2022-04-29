@@ -1,24 +1,18 @@
 package home_work_1;
 
-import java.util.Objects;
-import java.util.Scanner;
+import home_work_1.api.ICommunicationPrinter;
 
-public class Task5Point3 {
+public class Task5Point3 implements ICommunicationPrinter {
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("введите имя:");
-        String nameConsole = in.next();
-
-        switch (nameConsole) {
+    @Override
+    public String welcome(String name) {
+        switch (name) {
             case "Анастасия":
-                System.out.println("Я тебя так долго ждал");
-                break;
+                return "Я тебя так долго ждал";
             case "Вася":
-                System.out.println("Привет! \n" + "Я тебя так долго ждал");
-                break;
+                return "Привет! \n" + "Я тебя так долго ждал";
             default:
-                System.out.println("Добрый день, а вы кто?");
+                return "Добрый день, а вы кто?";
         }
     }
 }

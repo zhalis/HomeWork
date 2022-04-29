@@ -1,23 +1,21 @@
 package home_work_1;
 
+import home_work_1.api.ICommunicationPrinter;
+
 import java.util.Objects;
-import java.util.Scanner;
 
-public class Task5Point2 {
+public class Task5Point2 implements ICommunicationPrinter{
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("введите имя:");
-        String nameConsole = in.next();
-        String nameVasia = "Вася";
+    @Override
+    public String welcome(String name) { String nameVasia = "Вася";
         String nameAnastasia = "Анастасия";
 
-        if (Objects.equals(nameConsole, nameVasia)) {
-            System.out.println("Привет! \n" + "Я тебя так долго ждал");
-        } else if (Objects.equals(nameConsole, nameAnastasia)) {
-            System.out.println("Я тебя так долго ждал");
+        if (Objects.equals(name, nameVasia)) {
+            return "Привет! \n" + "Я тебя так долго ждал";
+        } else if (Objects.equals(name, nameAnastasia)) {
+            return "Я тебя так долго ждал";
         } else {
-            System.out.println("Добрый день, а вы кто?");
+            return "Добрый день, а вы кто?";
         }
     }
 }
