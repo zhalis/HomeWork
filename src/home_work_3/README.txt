@@ -25,4 +25,8 @@ calcs:
         CalculatorWithMemory - выполнен пункт 10
         CalculatorWithCounterAutoDecorator - выполнен пункт 11
         CalculatorWithMemoryDecorator - выполнен пункт 11
-
+test: - выполнен пункт 13
+    AbstractCalculatorTest - общие тесты для всех калькуляторов которые implements ICalculator
+    CalculatorWithMathCopyTest - тест CalculatorWithMathCopy
+    CalculatorWithMathExtendsTest - тест CalculatorWithMathExtends
+    CalculatorWithOperatorTest - тест CalculatorWithOperator
