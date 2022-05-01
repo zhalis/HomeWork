@@ -6,8 +6,9 @@ public class SortsUtils {
      * Метод производит пузырьковою сортировку массива
      *
      * @param arr массив интов
+     * @return отсортированный массив
      */
-    public static void bubble(int[] arr) {
+    public static int[] bubble(int[] arr) {
 
         for (int i = arr.length - 1; i > 0; i--) {
 
@@ -22,14 +23,16 @@ public class SortsUtils {
                 i = arr.length;
             }
         }
+        return arr;
     }
 
     /**
      * Метод производит шуйковую сортировку массива
      *
      * @param arr массив интов
+     * @return отсартированный массив
      */
-    public static void shake(int[] arr) {
+    public static int[] shake(int[] arr) {
 
         int leftValue = 0;
         int rightValue = arr.length - 1;
@@ -59,5 +62,6 @@ public class SortsUtils {
             }
             leftValue++;
         }
+        return arr;
     }
 }

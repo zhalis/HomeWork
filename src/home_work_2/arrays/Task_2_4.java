@@ -5,35 +5,14 @@ import home_work_2.utils.ArraysUtils;
 import java.util.Scanner;
 
 public class Task_2_4 {
-    public static void main(String[] args) {
-        int size = 50;
-        int maxValueExclusion = 100;
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
-        System.out.println("Сумма четных положительных элементов массива");
-        System.out.println(sumEventPositiveElementArray(size, maxValueExclusion));
-        System.out.println("Максимальный из элементов массива с четными индексами");
-        System.out.println(maxEvenIndexElementArray(size, maxValueExclusion));
-        System.out.println("Элементы массива, которые меньше среднего арифметического");
-        System.out.println(lessAverage(size, maxValueExclusion));
-        System.out.println("Найти два наименьших (минимальных) элемента массива");
-        System.out.println(twoSmallestArrayElements(size, maxValueExclusion));
-        System.out.println("Сжать массив, удалив элементы, принадлежащие интервалу");
-        for (int a : compressedArray(size, maxValueExclusion)) {
-            System.out.print(a + ", ");
-        }
-        System.out.println("\n Сумма цифр массива");
-        System.out.println(sumOfArrayDigits(size, maxValueExclusion));
-    }
 
     /**
-     *  Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion. Складывает все четные элементы масива
+     * Складывает все четные элементы маcсива
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array массив
      * @return сумму четных элементов массива
      */
-    public static int sumEventPositiveElementArray(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
+    public static int sumEventPositiveElementArray(int[] array) {
         int result = 0;
 
         for (int arrayElement : array) {
@@ -45,18 +24,16 @@ public class Task_2_4 {
     }
 
     /**
-     * Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion.Находит максимальный из элементов массива с четными индексами
+     * Находит максимальный из элементов массива с четными индексами
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array массив
      * @return максимальный из элементов массива с четными индексами
      */
-    public static int maxEvenIndexElementArray(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
+    public static int maxEvenIndexElementArray(int[] array) {
         int maxIndex = array[1];
 
-        for (int i = 0; i < array.length; i++)  {
-            if ((array[i] > maxIndex) && (i % 2 != 0)){
+        for (int i = 0; i < array.length - 1; i++) {
+            if ((array[i] > maxIndex) && (i % 2 != 0)) {
                 maxIndex = array[i];
             }
         }
@@ -64,20 +41,18 @@ public class Task_2_4 {
     }
 
     /**
-     * Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion. Находит элементы массива, которые меньше среднего арифметического
+     * Находит элементы массива, которые меньше среднего арифметического
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array массив
      * @return элементы массива, которые меньше среднего арифметического
      */
-    public static String lessAverage(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
+    public static String lessAverage(int[] array) {
         String lessAverage = "";
         int result = 0;
         for (int i = 0; i < array.length; i++) {
             result += array[i];
         }
-        result = result / size;
+        result = result / array.length;
         for (int i = 0; i < array.length; i++) {
             if (array[i] < result) {
                 lessAverage += String.format("%d, ", array[i]);
@@ -87,15 +62,15 @@ public class Task_2_4 {
     }
 
     /**
-     * Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion. Находит два наименьших (минимальных) элемента массива
+     * Находит два наименьших (минимальных) элемента массива
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array массива
      * @return два наименьших (минимальных) элемента массива
      */
-    public static String twoSmallestArrayElements(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
-        String lessAverage = "";
+    public static String twoSmallestArrayElements(int[] array) {
+        if (array.length == 0){
+            return "Длинна массива равна 0";
+        }
         int firstMinNumber = array[0];
         int secondMinNumber = array[1];
 
@@ -115,51 +90,40 @@ public class Task_2_4 {
                 secondMinNumber = array[i];
             }
         }
-        return "" + firstMinNumber + ", " + secondMinNumber;
+        return firstMinNumber + ", " + secondMinNumber;
     }
 
     /**
-     * Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion. Сжимает массив, удалив элементы, принадлежащие интервалу
+     * Сжимает массив, удалив элементы, принадлежащие интервалу
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array массив
      * @return массив, удалив элементы, принадлежащие интервалу
      */
-    public static int[] compressedArray(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
-        int[] compressedArray = new int[50];
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите начало интервала (1 - 99):");
-        int intervalStart = console.nextInt();
-        System.out.println("Введите конец интервала (" + intervalStart + "- 99):");
-        int endOfInterval = console.nextInt();
+    public static int[] compressedArray(int[] array, int intervalStart, int endOfInterval) {
         int counter = 0;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if ((array[i] >= intervalStart) && (array[i] <= endOfInterval)) {
                 for (int j = i; j < array.length - 1; j++) {
                     array[j] = array[j + 1];
                     if ((j + 1) == (array.length - 1)) {
                         counter++;
                         i--;
-                        array[size - counter] = 0;
+                        array[array.length - counter] = 0;
                     }
                 }
             }
-            compressedArray[i] = array[i];
         }
-        return compressedArray;
+        return array;
     }
 
     /**
-     * Создает маасив длинной size и заполняется случайными числами от нуля до maxValueExclusion. Слаживает цивры массива
+     * Слаживает цивры массива
      *
-     * @param size длинна массива
-     * @param maxValueExclusion верхняя граница интервала для заполнения массива
+     * @param array длинна массива
      * @return сумму всех цифр
      */
-    public static int sumOfArrayDigits(int size, int maxValueExclusion) {
-        int[] array = ArraysUtils.arrayRandom(size, maxValueExclusion);
+    public static int sumOfArrayDigits(int[] array) {
         int result = 0;
         int i = 0;
         int a = 0;
